@@ -1,0 +1,44 @@
+// Load required modules
+global string $gCommand;
+global string $gShelfTopLevel;
+
+// Directory containing the Python scripts
+string $script_dir = "C:/MayaToolbar/scripts";
+
+// Get a list of all Python files in the directory
+string $scripts[] = `getFileList -folder $script_dir -filespec "*.py"`;
+
+for($i=0; $i<size($scripts); $i++){
+    string $script = $scripts[$i];
+    if (endsWith($script, ".py") && $script != "createToolbar.py"){
+        string $file_path = $script_dir + "/" + $script;
+        string $button_name = `stripExtension($script)`;
+        string $command = "python(\"exec(open(\\\""+$file_path+"\\\").read())\")";
+
+        // Create a new shelf
+        string $shelf_name = "CewlTewls";
+        if (!`shelfLayout -exists $shelf_name`){
+            $shelf_name = `shelfLayout -parent $gShelfTopLevel $shelf_name`;
+        }else{
+            deleteUI $shelf_name;
+            $shelf_name = `shelfLayout -parent $gShelfTopLevel $shelf_name`;
+        }
+
+        // Add a button for each script to the shelf
+        if ($script == "checkPose.py"){
+            shelfButton -parent $shelf_name -enableCommandRepeat 1 -annotation $button_name -label $button_name -image "C:/MayaToolbar/icons/checkPose.jpg" -command $command;
+        }else{
+            shelfButton -parent $shelf_name -enableCommandRepeat 1 -annotation $button_name -label $button_name -image "commandButton.png" -command $command;
+        }
+    }
+} 
+
+// The stripExtension function removes the file extension from a string
+global proc string stripExtension(string $name){
+    int $dotIndex = `match "\\." $name`;
+    if ($dotIndex > 0){
+        return `substring $name 0 ($dotIndex-1)`;
+    }else{
+        return $name;
+    }
+}

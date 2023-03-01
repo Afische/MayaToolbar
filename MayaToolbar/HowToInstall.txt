@@ -1,0 +1,4 @@
+Step1: Drag the folder MayaToolbar to the C drive (C:\MayaToolbar)
+Step2: Open Maya and drag and drop 'createToolbar.mel' into the viewport
+
+* A tab named CewlTewls will appear in your shelves panel

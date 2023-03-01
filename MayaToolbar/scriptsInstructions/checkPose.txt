@@ -1,0 +1,18 @@
+CheckPose Instructions:
+
+UI Overview: 
+
+Current Saved File - Will display the name of the file that data was recorded from
+Saved Frame Number - Will display the name of the frame number recorded
+Record Data - When pressed, the translation and rotation values of all bones in the scene are recorded
+Read Data - When pressed, a UI will appear to let you know if the recorded data matches the data of the frame you are currently on
+
+How to Use:
+
+*Ideally your scene has only one rigged character
+
+Step1: Go to the frame that you would like to capture the pose of the character. 
+Step2: Click 'Record Data' to store the translation and rotation values of the bones
+Step3: The values for 'Current Saved File' and 'Saved Frame Number' will not refresh uintil you close and reopen the tool
+Step4: You can navigate to a different frame in the scene or open an entirely new scene. THe data will be saved even if you close Maya.
+Step5: Find a new frame with the same character and click 'Read Data' This will tell you if the translation and rotation values match from what you recorded
