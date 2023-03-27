@@ -1,5 +1,10 @@
 CheckPose Instructions:
 
+Purpose:
+Compare character rig bone translations and rotations at two different keyframes to see if they match. 
+This will ensure that game animations will seamlessly transition.
+Keyframes can be compared across different Maya projects.
+
 UI Overview: 
 
 Current Saved File - Will display the name of the file that data was recorded from
