@@ -6,14 +6,12 @@ This will ensure that game animations will seamlessly transition.
 Keyframes can be compared across different Maya projects.
 
 UI Overview: 
-
 Current Saved File - Will display the name of the file that data was recorded from
 Saved Frame Number - Will display the name of the frame number recorded
 Record Data - When pressed, the translation and rotation values of all bones in the scene are recorded
 Read Data - When pressed, a UI will appear to let you know if the recorded data matches the data of the frame you are currently on
 
 How to Use:
-
 *Ideally your scene has only one rigged character
 
 Step1: Go to the frame that you would like to capture the pose of the character. 
